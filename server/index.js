@@ -65,6 +65,11 @@ const {
     }
   });
 
+  // error handling route, return error message 
+    app.use((err, req, res, next) => {
+      res.status(500).send({error: err.message});
+    });
+
   async function init() {
     try {
     await client.connect();
